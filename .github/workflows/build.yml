@@ -20,9 +20,10 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      - name: Build with Gradle
+      - name: Build with Gradle (install Gradle if no wrapper)
         uses: gradle/gradle-build-action@v2
         with:
+          gradle-version: '8.5'
           arguments: clean build --no-daemon --stacktrace
 
       - name: Upload JAR
